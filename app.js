@@ -22,11 +22,13 @@ var httpsOptions = require("./config/https.js");
 var favicon = require("./config/favicon.js");
 var Connection = require("./config/connection.js");
 var checklogin = require("./middleware/userverification.js")
+const paginationMiddleware = require('./middleware/paginationMiddleware.js');
 
 // File and Funtions import
 var UserAgent = require("./middleware/useragent");
 
-
+// Paginations
+app.use(paginationMiddleware);
 favicon(app);
 
 // Date and time format
