@@ -1,0 +1,150 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox">
+
+                        <!-- views/main/url.ejs -->
+                        <table class="table largedatatable">
+                            <thead>
+                                <tr>
+                                    <th>SNo</th>
+                                    <th>ID</th>
+                                    <th>IP</th>
+                                    <th>Previous URL</th>
+                                    <th>Current URL</th>
+                                    <th>Current URL</th>
+                                    <th>Country</th>
+                                    <th>City</th>
+                                    <th>Views</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if (Data && Array.isArray(Data) && Data.length> 0) { %>
+                                    <% Data.forEach((data, index)=> { %>
+                                        <tr>
+                                            <td>
+                                                <%= index + 1 %>
+                                            </td>
+                                            <td>
+                                                <%= data.UID %>
+                                            </td>
+                                            <td>
+                                                <%= data.ip %>
+                                            </td>
+                                            <td>
+                                                <%= data.previousUrl %>
+                                            </td>
+                                            <td>
+                                                <%= data.previousUrl %>
+                                            </td>
+                                            <td>
+                                                <%= data.location.country %>
+                                            </td>
+                                            <td>
+                                                <%= data.location.city %>
+                                            </td>
+                                            <td>
+                                                <%= moment(data.timeOfVisit).format('DD MMMM YYYY, h:mm:ss a') %>
+                                            </td>
+                                            <td>
+                                                <span class="accordion" data-index="<%= index %>">Views</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="Showmedetaisl" id="details-<%= index %>" style="display:none;">
+                                            <td colspan="10">
+                                                <div class="maindivshowread agenttrackdatalis">
+                                                    <div class="list">
+                                                        <h4>Location</h4>
+                                                        <ul>
+                                                            <li><b>Country</b>
+                                                                <%= data.location.country %>
+                                                            </li>
+                                                            <li><b>City</b>
+                                                                <%= data.location.city %>
+                                                            </li>
+                                                            <li><b>Region</b>
+                                                                <%= data.location.region %>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="list">
+                                                        <h4>System Information </h4>
+                                                        <ul>
+                                                            <li><b>Browser</b>
+                                                                <%= data.userAgentInfo.browser %>
+                                                            </li>
+                                                            <li><b>OS</b>
+                                                                <%= data.userAgentInfo.os %>
+                                                            </li>
+                                                            <li><b>Source</b>
+                                                                <%= data.userAgentInfo.source %>
+                                                            </li>
+                                                            <li><b>Mobile</b>
+                                                                <%= data.userAgentInfo.isMobile ? 'Mobile' : '' %>
+                                                            </li>
+                                                            <li><b>Tablet</b>
+                                                                <%= data.userAgentInfo.isTablet ? 'Tablet' : '' %>
+                                                            </li>
+                                                            <li><b>Desktop</b>
+                                                                <%= data.userAgentInfo.isDesktop ? 'Desktop' : '' %>
+                                                            </li>
+                                                            <li><b>Android</b>
+                                                                <%= data.userAgentInfo.isAndroid ? 'Android' : '' %>
+                                                            </li>
+                                                            <li><b>Mac</b>
+                                                                <%= data.userAgentInfo.isMac ? 'Mac' : '' %>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <% }); %>
+                                            <% } else { %>
+                                                <tr>
+                                                    <td colspan="10">No URLs found or error retrieving data.</td>
+                                                </tr>
+                                                <% } %>
+                            </tbody>
+                        </table>
+
+                        <!-- Pagination Controls -->
+                        <nav>
+                            <ul class="pagination">
+                                <% if (currentPage> 1) { %>
+                                    <li class="page-item"><a class="page-link"
+                                            href="/log/crm/?page=<%= currentPage - 1 %>&pageSize=<%= pageSize %>">Previous</a>
+                                    </li>
+                                    <% } %>
+                                        <% for (let i=1; i <=totalPages; i++) { %>
+                                            <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+                                                <a class="page-link"
+                                                    href="/log/crm/?page=<%= i %>&pageSize=<%= pageSize %>">
+                                                    <%= i %>
+                                                </a>
+                                            </li>
+                                            <% } %>
+                                                <% if (currentPage < totalPages) { %>
+                                                    <li class="page-item"><a class="page-link"
+                                                            href="/log/crm/?page=<%= currentPage + 1 %>&pageSize=<%= pageSize %>">Next</a>
+                                                    </li>
+                                                    <% } %>
+                            </ul>
+                        </nav>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <%- include("../partial/footer.ejs") %>

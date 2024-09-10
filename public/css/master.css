@@ -1,0 +1,65 @@
+:root {
+    --fontawscirchek: "\f058"
+}
+
+body {
+    font-family: 'Poppins';
+    background: #f1f1f1;
+}
+
+a {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+.containbody {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    padding-left: 200px;
+}
+
+.mainbody {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+.containbody.activated {
+    padding-left: 0;
+}
+
+.sitenav.activated {
+    display: none;
+}
+
+.defort_white_box {
+    box-shadow: 0 0 10px rgb(8 21 66 / 16%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.form-group .form-control:focus-visible,
+.form-group .form-control:focus {
+    outline: unset;
+    box-shadow: unset;
+    border: 1px solid #8a8a8a;
+}

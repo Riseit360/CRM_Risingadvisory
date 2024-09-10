@@ -1,0 +1,235 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <!-- Multipal  Url Shortener-->
+                    <form action="/seo-tool/save-meta-tag" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-8 p-0">
+                                <div class="draftbox norformsetup">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Title <sup>*</sup></label>
+                                                <input type="text" class="form-control" id="Title" name="Title"
+                                                    placeholder="e.g. about us, sizing chart, FAQ">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Meta Description:</label>
+                                                <textarea id="description" class="form-control" name="description"
+                                                    rows="4"> </textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Meta keywords:</label>
+                                                <textarea id="keywords" class="form-control" name="keywords"
+                                                    rows="4"> </textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>URL and handle <sup>*</sup></label>
+                                                <input type="text" class="form-control canvert_slug" name="URLS_handle"
+                                                    id="URLS_handle" placeholder="URL and handle">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Subjec</label>
+                                                <input type="text" class="form-control" name="subject" id="subject"
+                                                    placeholder="subject">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Copyright</label>
+                                                <input type="text" class="form-control" name="copyright" id="copyright"
+                                                    placeholder="copyright">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Robots</label>
+                                                <select class="form-control" id="robots" name="robots">
+                                                    <option value="index,follow">Index, Follow</option>
+                                                    <option value="noindex,nofollow">No Index, No Follow</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Author</label>
+                                                <input type="text" class="form-control" name="author" id="author"
+                                                    placeholder="Author">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>GEO Position</label>
+                                                <input type="text" class="form-control" name="GeoPosition"
+                                                    id="GeoPosition" placeholder="Geo Position">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Address</label>
+                                                <input type="text" class="form-control" name="address" id="address"
+                                                    placeholder="Address">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>City</label>
+                                                <input type="text" class="form-control" name="city" id="city"
+                                                    placeholder="City">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>State</label>
+                                                <input type="text" class="form-control" name="state" id="state"
+                                                    placeholder="State">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Country</label>
+                                                <input type="text" class="form-control" name="country" id="country"
+                                                    placeholder="Country">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Majestic Site Verification</label>
+                                                <input type="text" class="form-control"
+                                                    name="majestic_site_verification" id="majestic_site_verification"
+                                                    placeholder="Majestic Site Verification">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>DMCS Site Verification</label>
+                                                <input type="text" class="form-control" name="dmca_site_verification"
+                                                    id="dmca_site_verification" placeholder="DMCS Site Verification">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Google Site Verification</label>
+                                                <input type="text" class="form-control" name="google_site_verification"
+                                                    id="google_site_verification"
+                                                    placeholder="Google Site Verification">
+                                            </div>
+                                        </div>
+
+                                        <h4 class="orgraphic">Open Graph </h4>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>OG Title </label>
+                                                <input type="text" class="form-control" id="og_title" name="og_title"
+                                                    placeholder="e.g. about us, sizing chart, FAQ">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>OG Description:</label>
+                                                <textarea id="og_description" class="form-control" name="og_description"
+                                                    rows="4"> </textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Domain:</label>
+                                                <input type="text" class="form-control" id="domain" name="domain"
+                                                    placeholder="Domain">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Card:</label>
+                                                <input type="text" class="form-control" id="summary_large_image"
+                                                    name="summary_large_image" value="summary_large_image">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Page Name:</label>
+                                                <input type="text" class="form-control" id="pagename" name="pagename"
+                                                    placeholder="Page Name">
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="finalstatusmode">
+                                    <div class="form-group">
+                                        <h5>Visibility <sup>*</sup></h5>
+                                        <select class="form-control" name="visibility" id="visibility">
+                                            <option value="Public">Publish</option>
+                                            <option value="Private">Private</option>
+                                            <option value="Draft">Draft</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <h6>Visibility date</h6>
+                                        <input type="datetime-local" class="form-control Visibilitydate"
+                                            name="visibility_date" id="visibility_date">
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <h6>Select a Pages <sup>*</sup></h6>
+                                        <select class="form-control page_name_select" id="page" name="page">
+                                            <optgroup label="Pages">
+                                                <% SavePageData.forEach(pages=> { %>
+                                                    <option value="<%= pages.Title %>">
+                                                        <%= pages.Title %>
+                                                    </option>
+                                                    <% }); %>
+                                            </optgroup>
+                                            <optgroup label="Post">
+                                                <% SaveBloggsData.forEach(Post=> { %>
+                                                    <option value="<%= Post.Title %>">
+                                                        <%= Post.Title %>
+                                                    </option>
+                                                    <% }); %>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                    <button class="fosavbtn" type="submit">Save </button>
+                                </div>
+                                <div class="finalstatusmode">
+                                    <h5>Favicon & OG images</h5>
+                                    <div class="featureimgbaner">
+                                        <div class="form-group">
+                                            <input type="file" id="imageInput" name="FeaturedImage" class="imagesupload"
+                                                accept="image/*">
+                                            <div class="image-preview">
+                                                <img id="previewImage" src="#" alt="Preview">
+                                            </div>
+                                        </div>
+                                        <span id="removeButton"><i class="fa-solid fa-xmark"></i> </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+        <%- include("../partial/footer.ejs") %>

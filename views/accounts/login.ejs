@@ -1,0 +1,35 @@
+<%- include('../partial/style.ejs') %>
+
+    <div class="singup">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="singupimg">
+                        <img src="/Images/back.webp" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <form method="post" action="/auth/authuserLogin">
+                        <h3>Log In to your account <a href="/auth/signup">Register</a> </h3>
+
+                        <div class="form-group">
+                            <input type="email" name="Email" class="form-control" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="Password" class="form-control" placeholder="Password">
+                        </div>
+
+                        <p class="forgetsefare"><a href="/auth/forget-password">Forget Your Password </a></p>
+
+                        <button type="submit" class="btn">Log In</button>
+
+                        <h5>OR</h5>
+                        <a href="/" class="googlebtn"><img src="/Images/google-logo.png" alt=""> Continue with Google
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../partial/script.ejs') %>

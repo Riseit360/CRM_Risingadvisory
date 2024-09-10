@@ -1,0 +1,48 @@
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="row">
+            <!-- Taggle -->
+            <div class="nav-toggle">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+            </div>
+
+            <!-- Search -->
+            <div class="serach">
+                <input type="text" name="search" class="form-control" placeholder="Search hare..">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+
+            <!-- User PRofile -->
+            <div class="userprofile">
+                <% if ( UserName && UserName.length> 0 ) { %>
+                    <div class="userimg">
+                        <b>
+                            <%= UserName.trim().substring(0, 15) %>
+                        </b>
+                        <ul>
+                            <li class="dropnav">
+                                <span><img src="/Images/user.webp" alt=""></span>
+                                <ul>
+                                    <li> <a href="/auth/logout"><i data-feather="log-in"></i>Log out</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <% } else { %>
+                        <span>
+                            <a href="/login"><img src="/Images/user.webp" alt=""></a>
+                        </span>
+                        <% } %>
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+</header>

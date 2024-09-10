@@ -1,0 +1,96 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox norformsetup">
+                        <% if (RolesData) { %>
+                            <!-- Multipal  Url Shortener-->
+                            <form action="/access-control/assign-roles/UpdateRoles/<%= RolesData.U_URl_ID %>"
+                                method="post">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Name <sup>*</sup></label>
+                                            <input type="text" class="form-control" name="Name"
+                                                value="<%= RolesData.Name  %>" required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Select Department: <sup>*</sup></label>
+                                            <select class="form-control" id="department" name="department" required>
+
+                                                <!-- Display the selected role's department -->
+                                                <option value="<%= RolesData.Department %>" selected>
+                                                    <%= RolesData.Department %>
+                                                </option>
+
+                                                <!-- Loop through departments and exclude the one already selected -->
+                                                <% departments.forEach(department=> { %>
+                                                    <% if (department.Name !==RolesData.Department) { %>
+                                                        <option value="<%= department.Name %>">
+                                                            <%= department.Name %>
+                                                        </option>
+                                                        <% } %>
+                                                            <% }); %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Select Department Head: <sup>*</sup></label>
+                                            <select class="form-control" id="department_head" name="department_head"
+                                                required>
+                                                <!-- Display the selected role's department -->
+                                                <option value="<%= RolesData.Department_Head %>" selected>
+                                                    <%= RolesData.Department_Head %>
+                                                </option>
+                                                <!-- Loop through departments and exclude the one already selected -->
+                                                <% departments.forEach(department=> { %>
+                                                    <% if (department.Head !==RolesData.Department_Head) { %>
+                                                        <option value="<%= department.Head %>">
+                                                            <%= department.Head %>
+                                                        </option>
+                                                        <% } %>
+                                                            <% }); %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Select Navigation <sup>*</sup></label>
+                                            <select class="form-control" id="Navigation" name="Navigation" required>
+                                                <!-- Display the selected role's department -->
+                                                <option value="<%= RolesData.Navigation %>" selected>
+                                                    <%= RolesData.Navigation %>
+                                                </option>
+                                                <!-- Loop through departments and exclude the one already selected -->
+                                                <% navigation.forEach(navigation=> { %>
+                                                    <% if (navigation.Menu_Name !==RolesData.Navigation) { %>
+                                                        <option value="<%= navigation.Menu_Name %>">
+                                                            <%= navigation.Menu_Name %>
+                                                        </option>
+                                                        <% } %>
+                                                            <% }); %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="fosavbtn" type="submit">Save </button>
+                            </form>
+                            <% } else { %>
+                                <h6>No User Found </h6>
+                                <% } %>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <%- include("../partial/footer.ejs") %>

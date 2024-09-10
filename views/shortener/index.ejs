@@ -1,0 +1,92 @@
+<!-- Header Include -->
+<%- include('../partial/header.ejs') %>
+
+    <%- include('../partial/urlshortbrecrub.ejs') %>
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox">
+                        <!-- Single Url Shortener-->
+                        <form action="/shortener/shorten" method="post">
+                            <div class="sinshourl">
+                                <div class="form-group">
+                                    <label>Single URL</label>
+                                    <input class="form-control form-control-lg" name="longURL" type="text"
+                                        placeholder="Long URL" autocomplete="off" autofocus="true" required="">
+                                </div>
+                                <button class="fosavbtn" type="submit">Shorten</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Line Breack -->
+        <div class="lindivider">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox">
+                        <h4>OR</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox">
+                        <!-- Multipal  Url Shortener-->
+                        <form action="/shortener/bulkurlshortener" method="post">
+                            <div class="multipalurlshort sinshourl">
+                                <div class="form-group">
+                                    <label>Bulk URL</label>
+                                    <textarea class="form-control" placeholder="Bulk URL" name="BulkURL" rows="3"
+                                        required=""></textarea>
+                                </div>
+                                <button class="fosavbtn" type="submit">Shorten</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Line Breack -->
+        <div class="lindivider">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox">
+                        <h4>OR</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- import  Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox">
+                        <!-- Multipal  Url Shortener-->
+                        <form action="/shortener/upload" method="post" enctype="multipart/form-data">
+                            <div class="multipalurlshort sinshourl importinp">
+                                <div class="form-group">
+                                    <label>Import URL File</label>
+                                    <input class="form-control form-control-lg" name="fileName" type="file" required=""
+                                        accept=".xls,.xlsx,.doc,.docx,.txt,.csv">
+                                </div>
+                                <button class="fosavbtn" type="submit">Shorten</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Include -->
+        <%- include('../partial/footer.ejs') %>

@@ -1,0 +1,83 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Multipal  Url Shortener-->
+                    <form action="/page/addpagedata" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-8 p-0">
+                                <div class="draftbox norformsetup">
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Title <sup>*</sup></label>
+                                                <input type="text" class="form-control" id="Page_Title"
+                                                    name="Page_Title" placeholder="e.g. about us, sizing chart, FAQ"
+                                                    required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Content:</label>
+                                                <textarea id="Content" class="form-control summernote" name="Content"
+                                                    rows="4"> </textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>URL and handle <sup>*</sup></label>
+                                                <input type="text" class="form-control" name="URL_handle"
+                                                    id="URL_handle" placeholder="URL and handle">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="finalstatusmode">
+                                    <div class="form-group">
+                                        <h5>Visibility <sup>*</sup></h5>
+                                        <select class="form-control" name="Visibility" id="Visibility">
+                                            <option value="Public">Publish</option>
+                                            <option value="Private">Private</option>
+                                            <option value="Draft">Draft</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <h6>Visibility date</h6>
+                                        <input type="datetime-local" class="form-control Visibilitydate"
+                                            name="Visibilitydate" id="Visibilitydate">
+                                    </div>
+                                    <button class="fosavbtn" type="submit">Save </button>
+                                </div>
+                                <div class="finalstatusmode">
+                                    <h5>Featured image</h5>
+                                    <div class="featureimgbaner">
+                                        <div class="form-group">
+                                            <input type="file" id="imageInput" name="FeaturedImage" class="imagesupload"
+                                                accept="image/*">
+                                            <div class="image-preview">
+                                                <img id="previewImage" src="#" alt="Preview">
+                                            </div>
+                                        </div>
+                                        <span id="removeButton"><i class="fa-solid fa-xmark"></i> </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+        <%- include("../partial/footer.ejs") %>

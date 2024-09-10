@@ -1,0 +1,104 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox norformsetup">
+
+
+
+                        <!-- views/main/url.ejs -->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>SNo</th>
+                                    <th>Edit</th>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Mobile Number</th>
+                                    <th>Verified</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if (Data.length> 0) { %>
+                                    <% let serialNumber=1; %>
+                                        <% Data.forEach(user=> { %>
+                                            <tr>
+                                                <td>
+                                                    <%= serialNumber++ %>
+                                                </td>
+                                                <td>
+                                                    <a href="/leads/calling/feedback/<%= user.U_URl_ID %>">
+                                                        <b><i class="fa-solid fa-pen"></i></b> Edit
+                                                    </a>
+                                                </td>
+
+                                                <td>
+                                                    <%= user.U_URl_ID %>
+                                                </td>
+                                                <td>
+                                                    <%= user.Name %>
+                                                </td>
+                                                <td>
+                                                    <%= user.Email %>
+                                                </td>
+                                                <td>
+                                                    <a href="/leads/calling/feedback/<%= user.U_URl_ID %>">
+                                                        <%= user.Mobile_Number %>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <%= user.isVerified %>
+                                                </td>
+                                                <td>
+                                                    <%= moment(user.Date).format('DD MMMM YYYY, h:mm:ss a') %>
+                                                </td>
+                                            </tr>
+                                            <% }) %>
+                                                <% } else { %>
+                                                    <tr>
+                                                        <td colspan="8" class="text-center">No data available</td>
+                                                    </tr>
+                                                    <% } %>
+                            </tbody>
+                        </table>
+
+
+                        <!-- Pagination Controls -->
+                        <nav>
+                            <ul class="pagination">
+                                <% if (currentPage> 1) { %>
+                                    <li class="page-item"><a class="page-link"
+                                            href="/leads/calling?page=<%= currentPage - 1 %>&pageSize=<%= pageSize %>">Previous</a>
+                                    </li>
+                                    <% } %>
+                                        <% for (let i=1; i <=totalPages; i++) { %>
+                                            <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+                                                <a class="page-link"
+                                                    href="/leads/calling?page=<%= i %>&pageSize=<%= pageSize %>">
+                                                    <%= i %>
+                                                </a>
+                                            </li>
+                                            <% } %>
+                                                <% if (currentPage < totalPages) { %>
+                                                    <li class="page-item"><a class="page-link"
+                                                            href="/leads/calling?page=<%= currentPage + 1 %>&pageSize=<%= pageSize %>">Next</a>
+                                                    </li>
+                                                    <% } %>
+                            </ul>
+                        </nav>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <%- include("../partial/footer.ejs") %>

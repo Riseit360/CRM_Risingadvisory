@@ -1,0 +1,17 @@
+<!-- breadcrumbs -->
+<div class="titlebreatcrums">
+    <div class="container">
+        <div class="row">
+            <div class="draftbox">
+                <h4>
+                    <% if (title.indexOf('-') !==-1) { %>
+                        <%= title.substring(0, title.lastIndexOf('-')) %>
+                            <% } else { %>
+                                <%= title %>
+                                    <% } %>
+                                        <img src="/Images/linkicon.png" alt="" width="30px">
+                </h4>
+            </div>
+        </div>
+    </div>
+</div>

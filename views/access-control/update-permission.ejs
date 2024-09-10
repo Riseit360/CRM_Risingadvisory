@@ -1,0 +1,91 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox norformsetup">
+                        <% if (PermissionsData) { %>
+                            <!-- Multipal  Url Shortener-->
+                            <form action="/access-control/UpdateRoles/<%= PermissionsData.U_URl_ID %>" method="post">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Select User <sup>*</sup></label>
+                                            <div class="multiselcter">
+                                                <select data-placeholder="Select Name" multiple class="selectpicker"
+                                                    name="User_Name" id="User_Name" required>
+                                                    <!-- Display the selected role's department -->
+                                                    <option value="<%= PermissionsData.Name %>" selected>
+                                                        <%= PermissionsData.Name %>
+                                                    </option>
+                                                    <!-- Loop through User Profile and exclude the one already selected -->
+                                                    <% UserProfile.forEach(user=> { %>
+                                                        <% if (user.Name !==PermissionsData.Name) { %>
+                                                            <option value="<%= user.Name %>">
+                                                                <%= user.Name %>
+                                                            </option>
+                                                            <% } %>
+                                                                <% }); %>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Select Roles <sup>*</sup></label>
+                                            <select class="form-control" id="Role" name="Role" required>
+                                                <!-- Display the selected role's department -->
+                                                <option value="<%= PermissionsData.Roles %>" selected>
+                                                    <%= PermissionsData.Roles %>
+                                                </option>
+                                                <!-- Loop through Roles Data and exclude the one already selected -->
+                                                <% RolesData.forEach(role=> { %>
+                                                    <% if (role.Nam !==PermissionsData.Roles) { %>
+                                                        <option value="<%= role.Name %>" required>
+                                                            <%= role.Name %>
+                                                        </option>
+                                                        <% } %>
+                                                            <% }); %>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Select Actions <sup>*</sup></label>
+                                            <div class="multiselcter">
+                                                <select data-placeholder="Select Permissions" multiple
+                                                    class="selectpicker" name="Permissions_Actions"
+                                                    id="Permissions_Actions" required>
+
+                                                    <% ['Create', 'Read' , 'write' , 'Update' , 'Delete'
+                                                        ].forEach(action=> { %>
+                                                        <option value="<%= action %>" <% if
+                                                            (PermissionsData.Actions.includes(action)) { %>
+                                                            selected
+                                                            <% } %> >
+                                                                <%= action %>
+                                                        </option>
+                                                        <% }); %>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="fosavbtn" type="submit">Save </button>
+                            </form>
+                            <% } else { %>
+                                <h6>No User Found </h6>
+                                <% } %>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <%- include("../partial/footer.ejs") %>

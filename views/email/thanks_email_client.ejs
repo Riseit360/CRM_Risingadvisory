@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="refresh" content="5;URL=/">
+    <title>Thank You</title>
+    <link rel="shortcut icon"
+        href="http://taxmanagercoin-env.eba-p6r8wkhe.ap-south-1.elasticbeanstalk.com/Images/Fevicon.png"
+        type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Source+Sans+Pro" rel="stylesheet">
+    <style>
+        .mailer_slider {
+            background: #f2f2f2;
+            width: auto;
+            border-radius: 6px;
+            overflow: hidden;
+            padding: 30px;
+            height: 100vh;
+        }
+
+        .mailer_slider .boxsection {
+            border-radius: 6px;
+            width: 50%;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 30px;
+            box-shadow: 0 0 20px #d1d1d1;
+            background: #ffffff;
+        }
+
+        .mailer_slider .boxsection h2 {
+            font-family: 'Kaushan Script', cursive;
+            letter-spacing: 3px;
+            color: #5ea358;
+            margin: 20px 0px;
+            margin-bottom: 30px;
+            font-weight: 900;
+            padding: 20px 0px;
+            text-align: center;
+            border-radius: 6px;
+            display: inline-block;
+            width: 100%;
+            font-size: 4rem;
+        }
+
+        .mailer_slider .boxsection h3,
+        .mailer_slider .boxsection h4,
+        .mailer_slider .boxsection h5,
+        .mailer_slider .boxsection h6,
+        .mailer_slider .boxsection p {
+            padding: 0px 0px;
+            margin: 0;
+            text-align: left;
+        }
+
+        .mailer_slider .boxsection h3 {
+            font-weight: 600;
+            color: #363636;
+            font-size: 16px;
+            margin-bottom: 9px;
+        }
+
+        .mailer_slider .boxsection h5 {
+            font-family: "Roboto", Arial, Helvetica, sans-serif;
+            font-weight: 400;
+            margin-bottom: 0px;
+            color: #797979;
+            text-align: left;
+            line-height: 22px;
+            font-size: 15px;
+        }
+
+        .mailer_slider .boxsection h6 {
+            font-size: 13px;
+            font-weight: 500;
+            width: 100%;
+            color: #4a4949;
+            margin-bottom: 10px;
+        }
+
+        .mailer_slider .boxsection h4 {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .last {
+            position: relative;
+            width: 100%;
+            padding: 15px 0px;
+            margin-top: 10px;
+        }
+
+        .mailer_slider .boxsection p {
+            font-family: 'Poppins';
+            font-style: normal;
+            color: #333333;
+            margin-bottom: 10px;
+            line-height: 19px;
+            font-size: 11px;
+            margin: 10px 0px 20px;
+        }
+
+        .mailer_slider .boxsection a {
+            background: #5ea358;
+            padding: 5px 30px;
+            border-radius: 4px;
+            display: inline-block;
+            color: #fff;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        @media(max-width: 1300px) {
+            .last {
+                padding: 10px 0px;
+            }
+
+            .mailer_slider .boxsection h5 {
+                font-size: 13px;
+            }
+
+            .mailer_slider .boxsection h6 {
+                font-size: 12px;
+                line-height: 13px;
+            }
+
+            .mailer_slider .boxsection p {
+                font-size: 11px;
+                margin-top: 10px;
+            }
+
+            .mailer_slider .boxsection h4 {
+                font-size: 16px;
+                margin-top: 5px;
+            }
+
+            .mailer_slider .boxsection h3 {
+                font-size: 15px;
+                margin-bottom: 10px;
+            }
+
+            .mailer_slider .boxsection h2 {
+                font-size: 3em;
+                letter-spacing: 2px;
+            }
+
+            .mailer_slider .boxsection {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .mailer_slider {
+                padding: 10px;
+            }
+
+            .mailer_slider .boxsection .userdeatils h6 {
+                font-size: 13px;
+            }
+
+            .userdeatils ul li span {
+                margin-left: 0px;
+                width: 100px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>`
+    <div class="mailer_slider">
+        <div class="container">
+            <div class="row">
+                <div class="boxsection">
+                    <div class="logo">
+                        <img src="<%= Udata.messageBody.Logo_url %>" alt="logo | <%= Udata.EmailSMTP.fromName %>">
+                    </div>
+                    <h2>Thank you !</h2>
+                    <h3>Hey
+                        <%= Udata.messageBody.Name %>,
+                    </h3>
+                    <div class="last">
+                        <h6>Thanks for connecting.</h6>
+                        <h6>Will reach out soon.</h6>
+                        <p>Be elated.</p>
+                        <p>
+                            <%= Udata.EmailSMTP.copyright %>.
+                        </p>
+                        <a href="<%= Udata.messageBody.Page_Name %>">View in browser </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

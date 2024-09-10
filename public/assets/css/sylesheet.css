@@ -1,0 +1,273 @@
+/*--- Uploading ---*/
+
+.imagex-upload {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px dashed #000;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.imagex-upload input.choose {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+#uploadPreview {
+    grid-gap: 0.1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    position: relative;
+    gap: 5px;
+}
+
+#uploadPreview .preview:first-child {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+}
+
+#uploadPreview .preview {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 3;
+    cursor: move;
+}
+
+
+/*-- Delete Images inn Preview --*/
+
+span.delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid #fff;
+}
+
+span.delete i {
+    font-weight: 800;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+
+/*-- upload Sing And url ---*/
+
+.adlinkfildiv {
+    background: #030d3d;
+    margin: 15px auto 0;
+    border-radius: 6px;
+    padding: 10px;
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+    position: relative;
+}
+
+.adlinkfildiv label,
+.uploadmsg .firstlable span {
+    position: relative;
+    background: #e95804;
+    padding: 8px 25px !important;
+    margin: 0;
+    width: auto;
+    color: #ffffff;
+    margin-right: 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+}
+
+.adlinkfildiv .fileuplsinimg,
+.adlinkfildiv .directoryfileimg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.adlinkfildiv .adurlform {
+    font-size: 12px;
+    font-family: sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    position: relative;
+    border: 1px dashed #ffffff;
+    padding: 8px 25px;
+    border-radius: 4px;
+}
+
+
+/*-- Uploader Single Images nad url --*/
+
+.uploadmsg {
+    margin: 0px auto 0;
+    display: inline-block;
+    width: 100%;
+}
+
+.uploadmsg .firstlable {
+    width: max-content;
+    margin: 0px auto;
+    display: flex;
+    font-size: 16px;
+    color: #000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    z-index: -1;
+    position: relative;
+}
+
+.uploadmsg .firstlable span {
+    margin-right: 0;
+}
+
+.uploadmsg .firstlable i {
+    font-size: 35px;
+    font-weight: 900;
+    color: #000;
+}
+
+
+/*-- Pages loader on Priviews images --*/
+
+.preloader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    transition: all 0.5s ease;
+    z-index: 1;
+}
+
+.preloader_inner {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    font-weight: 900;
+    font-size: 50px;
+    color: #fff;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+
+/*-- Url Input img addone --*/
+
+.urlinpuform {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000ad;
+    z-index: 9;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    display: none;
+}
+
+.urlinpufor {
+    margin: 0 auto;
+    display: flex;
+    width: 50%;
+    background: #fff;
+    border-radius: 4px;
+    padding: 15px;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 15px;
+    position: relative;
+}
+
+.urlinpufor .uplod_URl_sinng_img {
+    position: relative;
+    margin: 0;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid #b0a5a5;
+    font-size: 14px;
+    height: 40px;
+    width: 100%;
+}
+
+.urlinpufor .sunbinpurl {
+    padding: 10px 30px;
+    background: #0d6efd;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
+.urlinpuform .closeurllpopup {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #fff;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    border-radius: 50%;
+    color: #000;
+    font-weight: 800;
+    box-shadow: 0 0 3px #f0efef;
+}
+
+.adlinkfildiv label:first-child {
+    background: #be935f;
+}

@@ -1,0 +1,65 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox norformsetup">
+                        <!-- Multipal  Url Shortener-->
+                        <form action="/access-control/Createpermissions" method="post">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Select User <sup>*</sup></label>
+                                        <div class="multiselcter">
+                                            <select data-placeholder="Select Name" multiple class="selectpicker"
+                                                name="User_Name" id="User_Name" required>
+                                                <% UserProfile.forEach(user=> { %>
+                                                    <option value="<%= user.Name %>">
+                                                        <%= user.Name %>
+                                                    </option>
+                                                    <% }); %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Select Roles <sup>*</sup></label>
+                                        <select class="form-control" id="Role" name="Role" required>
+                                            <% RolesData.forEach(role=> { %>
+                                                <option value="<%= role.Name %>" required>
+                                                    <%= role.Name %>
+                                                </option>
+                                                <% }); %>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Select Actions <sup>*</sup></label>
+                                        <div class="multiselcter">
+                                            <select data-placeholder="Select Permissions" multiple class="selectpicker"
+                                                name="Permissions_Actions" id="Permissions_Actions" required>
+                                                <option value="Create">Create</option>
+                                                <option value="Read">Read</option>
+                                                <option value="write">write</option>
+                                                <option value="Update">Update</option>
+                                                <option value="Delete">Delete</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="fosavbtn" type="submit">Save </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <%- include("../partial/footer.ejs") %>

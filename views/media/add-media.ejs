@@ -1,0 +1,66 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox">
+                        <form action="/media/UploadMedia" method="post" enctype="multipart/form-data">
+                            <div class="imagex-upload">
+                                <!-- File upload -->
+                                <input type="file" class="choose uplodingFile" name="Drop_and_down_img"
+                                    multiple="multiple" />
+
+                                <!-- upload Preview-->
+                                <div id="uploadPreview">
+                                </div>
+
+                                <!-- upload msg-->
+                                <div class="uploadmsg">
+                                    <p class="firstlable">
+                                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                        <span>Add Images</span> or Drop images to upload
+                                    </p>
+                                    <!-- Click to Upload directory images-->
+                                    <div class="adlinkfildiv">
+                                        <label>
+                                            <input type="file" class="fileuplsinimg" name="uplod_sinng_img"
+                                                multiple="multiple">
+                                            Add Files
+                                        </label>
+
+                                        <label>
+                                            <input type="file" class="directoryfileimg" name="uplod_directory_img"
+                                                multiple="multiple" webkitdirectory directory>
+                                            Add Directory Files
+                                        </label>
+                                        <span class="adurlform">Add Form URL</span>
+                                    </div>
+
+                                    <!-- Url File Uploding Section -->
+                                    <div class="urlinpuform">
+                                        <span class="closeurllpopup"><i class="fa-solid fa-xmark"></i></span>
+                                        <div class="urlinpufor">
+                                            <input type="text" class="uplod_URl_sinng_img" id="uplod_URl_sinng_img"
+                                                name="uplod_URl_sinng_img" placeholder="https://example.com"
+                                                multiple="multiple">
+                                            <span class="sunbinpurl">Save</span>
+                                        </div>
+                                    </div>
+                                    <textarea id="imageSrcTextarea" name="allimglist" rows="10" cols="50"
+                                        placeholder="Image sources will appear here..." hidden></textarea>
+                                </div>
+                            </div>
+
+                            <button class="Mediabtnsave fosavbtn" type="submit">Save </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <%- include("../partial/footer.ejs") %>

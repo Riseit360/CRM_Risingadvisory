@@ -1,0 +1,111 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox norformsetup">
+                        <!-- Multipal  Url Shortener-->
+                        <form action="/Collaborators/adduser" method="post">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" class="form-control" name="Name"
+                                            value="<%= userProfileData.Name %>" placeholder="Enter Name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" class="form-control" name="Email" placeholder="Enter Email"
+                                            value="<%= userProfileData.Email %>" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Mobile Number </label>
+                                        <input type="number" class="form-control" name="Email"
+                                            placeholder="Mobile Number" value="<%= userProfileData.Mobile_Number %>"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Gender</label>
+                                        <select class="form-control" name="AcountType" required>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>DOB</label>
+                                        <input type="date" class="form-control" name="DOB" placeholder="DOB" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Zip Code </label>
+                                        <input type="text" class="form-control" name="ZipCode" placeholder="Zip Code"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <input type="text" class="form-control" name="City" placeholder="City" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Skills</label>
+                                        <input type="text" name="Skills" class="form-control multpltaginpt" id="Skills"
+                                            placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>language</label>
+                                        <input type="text" name="language" class="form-control multpltaginpt"
+                                            id="language    " placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <textarea id="Address" class="form-control" name="Address"
+                                            rows="4">Address</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>About</label>
+                                        <textarea id="Address" class="form-control" name="About"
+                                            rows="4">About</textarea>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+                            </div>
+                            <button class="fosavbtn" type="submit">Save </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <%- include("../partial/footer.ejs") %>

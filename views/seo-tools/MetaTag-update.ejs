@@ -1,0 +1,265 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+
+                    <% if (MetaData) { %>
+                        <!-- Multipal  Url Shortener-->
+                        <form action="/seo-tool/UpdatePages/<%= MetaData.U_URl_ID %>" method="post"
+                            enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-8 p-0">
+                                    <div class="draftbox norformsetup">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Title <sup>*</sup></label>
+                                                    <input type="text" class="form-control" id="Title" name="Title"
+                                                        value="<%= MetaData.Title %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Meta Description:</label>
+                                                    <textarea id="description" class="form-control" name="description"
+                                                        rows="4"><%= MetaData.Description %> </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Meta keywords:</label>
+                                                    <textarea id="keywords" class="form-control" name="keywords"
+                                                        rows="4"> <%= MetaData.Keywords %> </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>URL and handle <sup>*</sup></label>
+                                                    <input type="text" class="form-control canvert_slug"
+                                                        name="URLS_handle" id="URLS_handle"
+                                                        value="<%= MetaData.slug %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Subjec</label>
+                                                    <input type="text" class="form-control" name="subject" id="subject"
+                                                        value="<%= MetaData.Subject %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Copyright</label>
+                                                    <input type="text" class="form-control" name="copyright"
+                                                        id="copyright" value="<%= MetaData.Copyright %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Robots</label>
+                                                    <select class="form-control" id="robots" name="robots">
+                                                        <option value="<%= MetaData.Robots %>" selected>
+                                                            <%= MetaData.Robots %>
+                                                        </option>
+
+                                                        <% if (MetaData.Robots !=="index,follow" ) { %>
+                                                            <option value="index,follow">Index, Follow</option>
+                                                            <% } %>
+                                                                <% if (MetaData.Robots !=="noindex,nofollow" ) { %>
+                                                                    <option value="noindex,nofollow">No Index, No Follow
+                                                                    </option>
+                                                                    <% } %>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Author</label>
+                                                    <input type="text" class="form-control" name="author" id="author"
+                                                        value="<%= MetaData.Author %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>GEO Position</label>
+                                                    <input type="text" class="form-control" name="GeoPosition"
+                                                        id="GeoPosition" value="<%= MetaData.Geo_Position %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Address</label>
+                                                    <input type="text" class="form-control" name="address" id="address"
+                                                        value="<%= MetaData.Address.Address %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>City</label>
+                                                    <input type="text" class="form-control" name="city" id="city"
+                                                        value="<%= MetaData.Address.City %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>State</label>
+                                                    <input type="text" class="form-control" name="state" id="state"
+                                                        value="<%= MetaData.Address.State %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Country</label>
+                                                    <input type="text" class="form-control" name="country" id="country"
+                                                        value="<%= MetaData.Address.Country %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Majestic Site Verification</label>
+                                                    <input type="text" class="form-control"
+                                                        name="majestic_site_verification"
+                                                        id="majestic_site_verification"
+                                                        value="<%= MetaData.Majestic_Site_Verification %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>DMCS Site Verification</label>
+                                                    <input type="text" class="form-control"
+                                                        name="dmca_site_verification" id="dmca_site_verification"
+                                                        value="<%= MetaData.DMCA_Site_Verification %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Google Site Verification</label>
+                                                    <input type="text" class="form-control"
+                                                        name="google_site_verification" id="google_site_verification"
+                                                        value="<%= MetaData.Google_Site_Verification %>">
+                                                </div>
+                                            </div>
+
+                                            <h4 class="orgraphic">Open Graph </h4>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>OG Title </label>
+                                                    <input type="text" class="form-control" id="og_title"
+                                                        name="og_title" value="<%= MetaData.OG_Title %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>OG Description:</label>
+                                                    <textarea id="og_description" class="form-control"
+                                                        name="og_description"
+                                                        rows="4"><%= MetaData.OG_Description %></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Domain:</label>
+                                                    <input type="text" class="form-control" id="domain" name="domain"
+                                                        value="<%= MetaData.Domain %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Card:</label>
+                                                    <input type="text" class="form-control" id="summary_large_image"
+                                                        name="summary_large_image"
+                                                        value="<%= MetaData.Summary_Large_Image %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Page Name:</label>
+                                                    <input type="text" class="form-control" id="pagename"
+                                                        name="pagename" value="<%= MetaData.Page_Name %>">
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="finalstatusmode">
+                                        <div class="form-group">
+                                            <h5>Visibility <sup>*</sup></h5>
+                                            <select class="form-control" name="visibility" id="visibility">
+                                                <option value="<%= MetaData.Visibility %>">
+                                                    <%= MetaData.Visibility %>
+                                                </option>
+                                                <% if (MetaData.Visibility !=="Public" ) { %>
+                                                    <option value="Public">Publish</option>
+                                                    <% } %>
+                                                        <% if (MetaData.Visibility !=="Private" ) { %>
+                                                            <option value="Private">Private</option>
+                                                            <% } %>
+                                                                <% if (MetaData.Visibility !=="Draft" ) { %>
+                                                                    <option value="Draft">Draft</option>
+                                                                    <% } %>
+
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <h6>Visibility date</h6>
+
+                                            <input type="datetime-local" class="form-control Visibilitydate"
+                                                name="visibility_date" id="visibility_date"
+                                                value="<%= MetaData.Visibility_Date %>">
+
+                                        </div>
+                                        <div class="form-group">
+                                            <h6>Select a Pages <sup>*</sup></h6>
+                                            <select class="form-control page_name_select" id="page" name="page">
+                                                <!-- First, render the option corresponding to MetaData.Pages and mark it as selected -->
+                                                <option value="<%= MetaData.Pages %>" selected>
+                                                    <%= MetaData.Pages %>
+                                                </option>
+
+                                                <!-- Loop through the SavePageData to render other options, ensuring that MetaData.Pages is excluded -->
+                                                <% SavePageData.forEach(pages=> { %>
+                                                    <% if (pages.Title !==MetaData.Pages) { %>
+                                                        <option value="<%= pages.Title %>">
+                                                            <%= pages.Title %>
+                                                        </option>
+                                                        <% } %>
+                                                            <% }); %>
+                                            </select>
+                                        </div>
+                                        <button class="fosavbtn" type="submit">Save </button>
+                                    </div>
+                                    <div class="finalstatusmode">
+                                        <h5>Favicon & OG images</h5>
+                                        <div class="featureimgbaner">
+                                            <div class="form-group">
+                                                <input type="file" id="imageInput" name="FeaturedImage"
+                                                    class="imagesupload" accept="image/*">
+                                                <div class="image-preview">
+                                                    <img id="previewImage" src="/uploads/<%= MetaData.Featured_Image %>"
+                                                        alt="Preview">
+                                                </div>
+                                            </div>
+                                            <span id="removeButton"><i class="fa-solid fa-xmark"></i> </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                        <% } else { %>
+                            <h6>No Pages Found </h6>
+                            <% } %>
+                </div>
+            </div>
+        </div>
+
+
+        <%- include("../partial/footer.ejs") %>

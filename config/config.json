@@ -1,0 +1,28 @@
+{
+    "Gamil": {
+        "id": "support@risingadvisory.com",
+        "pass": "DeepJain@2630",
+        "Email_BCC": "deepjain00@gmail.com,neil.ekta@gmail.com,shekhar.kundra@gmail.com",
+        "EmailFrom": "noreply@risingadvisory.com",
+        "Email_Password": "RASPL@2630",
+        "SmtpServer": "smtpout.secureserver.net",
+        "SmtpPort": "587"
+    },
+    "Databased": {
+        "OnlineURI": "mongodb+srv://Resingadvisory:827QGcFJSlb3fzvT@risingadvisory-crm.un3sm.mongodb.net/Risingadvisory_crm",
+        "localDatabaseUrl": "mongodb://0.0.0.0:27017/Credmanager",
+        "atlas_password": "827QGcFJSlb3fzvT",
+        "atlas_user": "Resingadvisory"
+    },
+    "credentials": {
+        "ID": "TAXMANAGER.CTO@gmail.com",
+        "Pwd": "Taxmanager@2630",
+        "TemplateID": "1007956423191338365",
+        "SenderID": "RISADV",
+        "apiUrl": "https://messaging.charteredinfo.com/smsaspx",
+        "messageTemplate": "Your 6-digit verification code is: {otp}, Please enter this code in the CredManager app to complete the verification process. Thank you, Team CredManager"
+    },
+    "BASE_URL": "http://localhost:2026/url-shortener",
+    "TOKEN_SECRET": "859645",
+    "EmploymentId": "TM"
+}

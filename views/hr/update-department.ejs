@@ -1,0 +1,66 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox norformsetup">
+
+                        <% if (userData) { %>
+                            <!-- Multipal  Url Shortener-->
+                            <form action="/hr/department/Updatedepartment/<%= userData.U_URl_ID %>" method="post">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Department Name: <sup>*</sup></label>
+                                            <input type="text" class="form-control" id="department_name"
+                                                name="department_name" value="<%= userData.Name %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Department Head: <sup>*</sup></label>
+                                            <input type="text" class="form-control" id="department_head"
+                                                name="department_head" value="<%= userData.Head %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Location:</label>
+                                            <input type="text" class="form-control" value="<%= userData.location %>"
+                                                id="location" name="location">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Contact Number:</label>
+                                            <input type="tel" class="form-control" id="contact_number"
+                                                name="contact_number" value="<%= userData.Mobile_Number %>">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Email:</label>
+                                            <input type="email" class="form-control" id="email" name="email"
+                                                value="<%= userData.Email %>">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                </div>
+                                <button class="fosavbtn" type="submit">Save </button>
+                            </form>
+                            <% } else { %>
+                                <h6>No User Found </h6>
+                                <% } %>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <%- include("../partial/footer.ejs") %>

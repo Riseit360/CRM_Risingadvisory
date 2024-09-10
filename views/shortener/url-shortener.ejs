@@ -1,0 +1,114 @@
+<!-- Header Include -->
+<%- include('../partial/header.ejs') %>
+
+
+    <%- include('../partial/urlshortbrecrub.ejs') %>
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox">
+                        <h4 class="titleoflist"><span>All List Of URL Shortener </span><a
+                                href="/shortener/url-list/download" class="Download_btton">Donwload</a></h4>
+
+                        <!-- Fillter -->
+                        <div class="filtersecare">
+                            <form method="post" action="/shortener/url-list/filtered-url-list">
+                                <div class="col-md-6">
+                                    <div class="filbox">
+                                        <div class="form-group">
+                                            <label for="startDate">Start Date:</label>
+                                            <input type="date" name="startDate" class="form-control" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary Download_btton">Filter</button>
+                                    </div>
+                                </div>
+                                <div class="col-sm"></div>
+                            </form>
+                        </div>
+
+                        <!-- views/main/url.ejs -->
+                        <table class="table SmallDatatable">
+                            <thead>
+                                <tr>
+                                    <th>SNo</th>
+                                    <th>ID</th>
+                                    <th>URL</th>
+                                    <th>Short URL</th>
+                                    <th>Date</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if (Data && Array.isArray(Data) && Data.length> 0) { %>
+                                    <% Data.forEach((data, index)=> { %>
+                                        <tr>
+                                            <td>
+                                                <%= index + 1 %>
+                                            </td>
+                                            <td>
+                                                <%= data.U_URl_ID %>
+                                            </td>
+                                            <td>
+                                                <a href="<%= data.long_URL %>">
+                                                    <%= data.long_URL %>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="<%= data.short_URL %>">
+                                                    <%= data.short_URL %>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <%= moment(data.Date).format('DD MMMM YYYY, h:mm:ss a') %>
+                                            </td>
+                                            <td>
+                                                <a href="/shortener/url-list/delete/<%= data.U_URl_ID %>">
+                                                    Delete
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <% }); %>
+                                            <% } else { %>
+                                                <tr>
+                                                    <td colspan="6">No URLs found or error retrieving data.</td>
+                                                </tr>
+                                                <% } %>
+                            </tbody>
+                        </table>
+
+                        <!-- Pagination Controls -->
+                        <nav>
+                            <ul class="pagination">
+                                <% if (currentPage> 1) { %>
+                                    <li class="page-item"><a class="page-link"
+                                            href="/shortener/url-list?page=<%= currentPage - 1 %>&pageSize=<%= pageSize %>">Previous</a>
+                                    </li>
+                                    <% } %>
+                                        <% for (let i=1; i <=totalPages; i++) { %>
+                                            <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+                                                <a class="page-link"
+                                                    href="/shortener/url-list?page=<%= i %>&pageSize=<%= pageSize %>">
+                                                    <%= i %>
+                                                </a>
+                                            </li>
+                                            <% } %>
+                                                <% if (currentPage < totalPages) { %>
+                                                    <li class="page-item"><a class="page-link"
+                                                            href="/shortener/url-list?page=<%= currentPage + 1 %>&pageSize=<%= pageSize %>">Next</a>
+                                                    </li>
+                                                    <% } %>
+                            </ul>
+                        </nav>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Footer Include -->
+        <%- include('../partial/footer.ejs') %>

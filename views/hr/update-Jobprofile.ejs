@@ -1,0 +1,135 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox norformsetup">
+
+                        <% if (JobProfile) { %>
+                            <!-- Multipal  Url Shortener-->
+                            <form action="/hr/Job-profile/Updatedepartment/<%= JobProfile.U_URl_ID %>" method="post">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Title: <sup>*</sup></label>
+                                            <input type="text" class="form-control" id="job_title" name="job_title"
+                                                value="<%= JobProfile.jobDetails.job_title %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Job Profile: <sup>*</sup></label>
+                                            <input type="text" class="form-control" id="job_profile" name="job_profile"
+                                                value="<%= JobProfile.jobDetails.Job_Profile %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Select Department: <sup>*</sup></label>
+                                            <select class="form-control" id="department" name="department" required>
+                                                <% departments.forEach(department=> { %>
+                                                    <option value="<%= JobProfile.jobDetails.Department %>"
+                                                        <%=department.Name===JobProfile.jobDetails.Department
+                                                        ? 'selected' : '' %>>
+                                                        <%= JobProfile.jobDetails.Department %>
+                                                    </option>
+                                                    <% }); %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Select Department Head: <sup>*</sup></label>
+                                            <select class="form-control" id="department_head" name="department_head"
+                                                required>
+                                                <% departments.forEach(department=> { %>
+                                                    <option value="<%= JobProfile.jobDetails.Department_Head %>"
+                                                        <%=department.Head===JobProfile.jobDetails.Department_Head
+                                                        ? 'selected' : '' %>>
+                                                        <%= JobProfile.jobDetails.Department_Head %>
+                                                    </option>
+                                                    <% }); %>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Salary Range:</label>
+                                            <input type="text" id="salary_range" class="form-control"
+                                                name="salary_range" value="<%= JobProfile.jobDetails.Salary_Range %>">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Profile Post:</label>
+                                            <select class="form-control" id="profile_post" name="profile_post">
+                                                <option value="<%= JobProfile.jobDetails.Profile_Post %>" selected>
+                                                    <%= JobProfile.jobDetails.Profile_Post %>
+                                                </option>
+                                                <option value="Senior">Senior</option>
+                                                <option value="None">None</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Employment Type:</label>
+                                            <select id="employment_type" name="employment_type" class="form-control">
+                                                <option value="<%= JobProfile.jobDetails.Employment_Type %>" selected>
+                                                    <%= JobProfile.jobDetails.Employment_Type %>
+                                                </option>
+                                                <option value="part-time">Part-time</option>
+                                                <option value="contract">Contract</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Location:</label>
+                                            <input type="text" id="location" name="location" class="form-control"
+                                                value="<%= JobProfile.jobDetails.Location %>">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Job Description:</label>
+                                            <textarea id="job_description" class="form-control summernote"
+                                                name="job_description"
+                                                rows="4"><%= JobProfile.jobDescription.Job_Description %></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Responsibilities:</label>
+                                            <textarea id="responsibilities" class="form-control summernote"
+                                                name="responsibilities"
+                                                rows="4"><%= JobProfile.jobDescription.Responsibilities %></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Requirements:</label>
+                                            <textarea id="requirements" class="form-control summernote"
+                                                name="requirements"
+                                                rows="4"><%= JobProfile.jobDescription.Requirements %></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="fosavbtn" type="submit">Save</button>
+                            </form>
+                            <% } else { %>
+                                <h6>No User Found </h6>
+                                <% } %>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <%- include("../partial/footer.ejs") %>

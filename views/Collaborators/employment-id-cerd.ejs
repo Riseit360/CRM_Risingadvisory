@@ -1,0 +1,75 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <!-- Id Card -->
+                    <div id="d1" class="employeedidcard">
+
+                        <% if (userData) { %>
+
+                            <div class="employeelogocard">
+                                <img src="/Images/card/logo.png">
+                            </div>
+                            <div class="carbaneidemp">
+                                <div class="Employeeprofile">
+                                    <span>
+                                        <img src="/Images/card/sanya1.jpeg" alt="<%= userData.Name %>">
+                                    </span>
+                                </div>
+                                <h2>
+                                    <%= userData.Name %>
+                                </h2>
+                                <h5>
+                                    <%= userData.Job_Profile %>
+                                </h5>
+                                <h4>ID:
+                                    <%= userData.Employment_ID %>
+                                </h4>
+                            </div>
+                            <div class="carfootemployeer">
+                                <ul>
+                                    <li><span><i class="far fa-envelope"></i></span>
+                                        <%= userData.Email %>
+                                    </li>
+                                    <li><span><i class="fas fa-phone-alt"></i></span>
+                                        <%= userData.Mobile_Number %>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h6>www.TaxManager.in </h6>
+                            <% } else { %>
+
+                                <div class="employeelogocard">
+                                    <img src="/Images/card/logo.png">
+                                </div>
+                                <div class="carbaneidemp">
+                                    <div class="Employeeprofile">
+                                        <span>
+                                            <img src="/Images/user.webp" alt="Support Services">
+                                        </span>
+                                    </div>
+                                    <h2></h2>
+                                    <h5>Support Services</h5>
+                                    <h4>ID: TMSULD0012 </h4>
+                                </div>
+                                <div class="carfootemployeer">
+                                    <ul>
+                                        <li><span><i class="far fa-envelope"></i></span> Support@TaxManager.in</li>
+                                        <li><span><i class="fas fa-phone-alt"></i></span> +91-9555331122</li>
+                                    </ul>
+                                </div>
+                                <h6>www.TaxManager.in </h6>
+                                <% } %>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include("../partial/footer.ejs") %>

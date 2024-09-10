@@ -1,0 +1,103 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <% if (PagesData) { %>
+                        <!-- Multipal  Url Shortener-->
+                        <form action="/page/UpdatePages/<%= PagesData.U_URl_ID %>" method="post"
+                            enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-8 p-0">
+                                    <div class="draftbox norformsetup">
+                                        <div class="row">
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Title <sup>*</sup></label>
+                                                    <input type="text" class="form-control" id="Page_Title"
+                                                        name="Page_Title" value="<%= PagesData.Title  %>" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Content:</label>
+                                                    <textarea id="Content" class="form-control summernote"
+                                                        name="Content" rows="4"><%= PagesData.Content  %> </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>URL and handle <sup>*</sup></label>
+                                                    <input type="text" class="form-control" name="URL_handle"
+                                                        id="URL_handle" value="<%= PagesData.slug  %> ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="finalstatusmode">
+                                        <div class="form-group">
+                                            <h5>Visibility <sup>*</sup></h5>
+                                            <select class="form-control" name="Visibility" id="Visibility">
+                                                <option value="<%= PagesData.Visibility %>" selected>
+                                                    <%= PagesData.Visibility %>
+                                                </option>
+                                                <% if (PagesData.Visibility !=="Public" ) { %>
+                                                    <option value="Public">Publish</option>
+                                                    <% } %>
+                                                        <% if (PagesData.Visibility !=="Private" ) { %>
+                                                            <option value="Private">Private</option>
+                                                            <% } %>
+                                                                <% if (PagesData.Visibility !=="Draft" ) { %>
+                                                                    <option value="Draft">Draft</option>
+                                                                    <% } %>
+                                            </select>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <h6>Visibility date</h6>
+
+                                            <% // Ensure PagesData.visibility_Date is properly formatted const
+                                                visibilityDate=new Date(PagesData.visibility_Date); const
+                                                formattedDate=visibilityDate.toISOString().slice(0, 16); %>
+
+                                                <input type="datetime-local" class="form-control Visibilitydate"
+                                                    name="Visibilitydate" id="Visibilitydate"
+                                                    value="<%= formattedDate %>">
+
+                                        </div>
+                                        <button class="fosavbtn" type="submit">Save </button>
+                                    </div>
+                                    <div class="finalstatusmode">
+                                        <h5>Featured image</h5>
+                                        <div class="featureimgbaner">
+                                            <div class="form-group">
+                                                <input type="file" id="imageInput" name="FeaturedImage"
+                                                    class="imagesupload" accept="image/*">
+                                                <div class="image-preview">
+                                                    <img id="previewImage" src="/blogs/<%= PagesData.Featured_Image %>"
+                                                        alt="Preview">
+                                                </div>
+                                            </div>
+                                            <span id="removeButton"><i class="fa-solid fa-xmark"></i> </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                        <% } else { %>
+                            <h6>No Pages Found </h6>
+                            <% } %>
+                </div>
+            </div>
+        </div>
+
+
+        <%- include("../partial/footer.ejs") %>

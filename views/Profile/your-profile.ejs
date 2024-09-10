@@ -1,0 +1,96 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox">
+
+
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <div class="userfilsec">
+                                    <div class="usimpro">
+                                        <img src="/Images/user.webp" alt="">
+                                    </div>
+                                    <h2>
+                                        <%= userProfileData.Name %>
+                                    </h2>
+                                    <h3>
+                                        <%= userProfileData.Job_Profile_Post + " " +userProfileData.Job_Profile %>
+                                    </h3>
+                                    <ul>
+                                        <li><span>Email Addess</span>
+                                            <a href="mailto:<%= userProfileData.Email %>">
+                                                <%= userProfileData.Email %>
+                                            </a>
+                                        </li>
+                                        <li><span>Mobile Number</span>
+                                            <a href="tel:<%= userProfileData.Mobile_Number %>">
+                                                <%= userProfileData.Mobile_Number %>
+                                            </a>
+                                        </li>
+                                        <li><span>Gender</span>Male</li>
+                                        <li><span>DOB</span>12 Jan 1999</li>
+                                        <li><span>Address</span> 3rd Floor, Local Shopping Complex, 18 - A, Wing F, Ring
+                                            Rd, above LIC Office, A Block, Naraina Vihar, New Delhi, Delhi 110028
+                                        </li>
+                                        <li><span>City</span>New Delhi</li>
+                                        <li><span>Zip Code</span> 110028</li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="details">
+                                    <h2>About</h2>
+                                    <div class="secdivae">
+                                        <h4>About me</h4>
+                                        <p>Geetings, fellow software enthusiasts! I'm thrilled to see your intereset in
+                                            exploring my profile. I'm Christian Mayo, a 24-year-old software engineer
+                                            from the United Kingdom. My educational path led me to earn
+                                            a Bachelor's Degeer in Computer Science, specializing in Software
+                                            Engineering. With this qualification, I'm equipped to dive into the world of
+                                            coding and develooment,ready to tackle exciting projects and contribute
+                                            to cutting-edge technological advancement... </p>
+                                    </div>
+                                    <div class="secdivae">
+                                        <h4>Skills</h4>
+                                        <ul class="listtagsskill">
+                                            <li>User Interface</li>
+                                            <li>User Experience</li>
+                                            <li>Interaction Design</li>
+                                            <li>3D Design</li>
+                                            <li>Information Architecture</li>
+                                            <li>User Research</li>
+                                            <li>Wireframing</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="secdivae">
+                                        <h4>language</h4>
+                                        <ul class="listtagsskill">
+                                            <li>English</li>
+                                            <li>Madrian</li>
+                                            <li>Spanish</li>
+                                            <li>French</li>
+                                        </ul>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include("../partial/footer.ejs") %>

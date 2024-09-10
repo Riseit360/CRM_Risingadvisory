@@ -1,0 +1,117 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox norformsetup">
+                        <!-- Multipal  Url Shortener-->
+                        <form action="/hr/addjobprofile" method="post">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Title: <sup>*</sup></label>
+                                        <input type="text" class="form-control" id="job_title" name="job_title"
+                                            placeholder="Job Title" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Job Profile: <sup>*</sup></label>
+                                        <input type="text" class="form-control" id="job_profile" name="job_profile"
+                                            placeholder="Job Profile" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Select Department: <sup>*</sup></label>
+                                        <select class="form-control" id="department" name="department" required>
+                                            <% departments.forEach(department=> { %>
+                                                <option value="<%= department.Name %>">
+                                                    <%= department.Name %>
+                                                </option>
+                                                <% }); %>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Select Department Head: <sup>*</sup></label>
+                                        <select class="form-control" id="department_head" name="department_head"
+                                            required>
+                                            <% departments.forEach(department=> { %>
+                                                <option value="<%= department.Head %>">
+                                                    <%= department.Head %>
+                                                </option>
+                                                <% }); %>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Salary Range:</label>
+                                        <input type="text" id="salary_range" class="form-control" name="salary_range"
+                                            placeholder="Salary Range">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Profile Post:</label>
+                                        <select class="form-control" id="profile_post" name="profile_post">
+                                            <option value="Senior" selected>Senior</option>
+                                            <option value="Junior">Junior</option>
+                                            <option value="None">None</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Employment Type:</label>
+                                        <select id="employment_type" name="employment_type" class="form-control">
+                                            <option value="full-time" selected>Full-time</option>
+                                            <option value="part-time">Part-time</option>
+                                            <option value="contract">Contract</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Location:</label>
+                                        <input type="text" id="location" name="location" class="form-control"
+                                            placeholder="Location">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Job Description:</label>
+                                        <textarea id="job_description" class="form-control summernote"
+                                            name="job_description" rows="4">Job Description</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Responsibilities:</label>
+                                        <textarea id="responsibilities" class="form-control summernote"
+                                            name="responsibilities" rows="4">Responsibilities</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Requirements:</label>
+                                        <textarea id="requirements" class="form-control summernote" name="requirements"
+                                            rows="4">Requirements</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="fosavbtn" type="submit">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <%- include("../partial/footer.ejs") %>

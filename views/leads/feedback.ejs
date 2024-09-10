@@ -1,0 +1,121 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <% if (LeadsData) { %>
+                        <!-- Multipal  Url Shortener-->
+                        <form action="/leads/calling/UpdateFeedback/<%= LeadsData.U_URl_ID %>" method="post">
+                            <div class="col-md-8 p-0">
+                                <div class="draftbox norformsetup">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Name <sup>*</sup></label>
+                                                <input type="text" class="form-control" name="Name"
+                                                    value="<%= LeadsData.Name %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Email <sup>*</sup></label>
+                                                <input type="email" class="form-control" name="Email"
+                                                    value="<%= LeadsData.Email %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Phone </label>
+                                                <input type="number" class="form-control" name="PhoneNumber"
+                                                    value="<%= LeadsData.Mobile_Number %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Content:</label>
+                                                <textarea id="Content" class="form-control summernote" name="Content"
+                                                    rows="4">
+                                                <p>Dear Mr./Ms. <strong><%= LeadsData.Name %></strong>,</p>                                    
+                                                <p>I am <strong><%= UserName %></strong> calling from <strong>TaxManager.in.</strong></p>
+                                                <p>You are our esteemed registered customer and this is a support call in relation the tax return process.</p>
+                                                <p>We have been guided by Income Tax Department to conduct a survey within our registered customers for their tax filing process has been completed and processed or not for FY 2021-22</p>
+                                                <p><b>So in that pls help me if you have.</b></p>
+                                                <ol>
+                                                    <li><strong>Not efiled</strong> ( then talk about our tax filing services )</li>
+                                                    <li><strong>eFiled</strong> 
+                                                        <ul>
+                                                            <li>Have you e verified your return within due date</li>
+                                                            <li>Are you aware you return has been processed after e verification and did you receive the intimation u/s 143(1) which is the completion of your tax return process or there is a tax notice</li>
+                                                            <li>If you have not e verified within the due date your tax return has become in valid and you would need to file your tax revised return. ( talk about filing service )</li>
+                                                        </ul>
+                                                    </li>
+                                                </ol>                                     
+                                            </textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Feedback For Connected </label>
+                                                <select class="form-control page_name_select"
+                                                    id="Feedback_For_Connected" name="Feedback_For_Connected">
+                                                    <optgroup label="Connected">
+                                                        <option value="Filing Done">Filing Done</option>
+                                                        <option value="Filing Not Done">Filing Not Done</option>
+                                                        <option value="Call Again">Call Again</option>
+                                                        <option value="Wrrong Number">Wrrong Number</option>
+                                                        <option value="Do Not Call">Do Not Call</option>
+                                                    </optgroup>
+                                                    <optgroup label="Not Connected">
+                                                        <option value="Not Picking">Not Picking</option>
+                                                        <option value="Not Reachable">Not Reachable</option>
+                                                        <option value="Switch Off">Switch Off</option>
+                                                        <option value="Call Busy">Call Busy</option>
+                                                        <option value="Disconnect">Disconnect</option>
+                                                        <option value="Out Coverage">Out Coverage</option>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Next Follow up Date </label>
+                                                <input type="datetime-local" class="form-control Visibilitydate"
+                                                    name="Visibilitydate" id="Visibilitydate">
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="finalstatusmode">
+                                    <div class="form-group">
+                                        <h5>Visibility <sup>*</sup></h5>
+                                        <select class="form-control" name="Visibility" id="Visibility">
+                                            <option value="Public">Publish</option>
+                                            <option value="Private">Private</option>
+                                            <option value="Draft">Draft</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <h6>Visibility date</h6>
+                                        <input type="datetime-local" class="form-control Visibilitydate"
+                                            name="Visibilitydate" id="Visibilitydate">
+                                    </div>
+                                    <button class="fosavbtn" type="submit">Save </button>
+                                </div>
+                            </div>
+                        </form>
+                        <% } else { %>
+                            <h6>No Pages Found </h6>
+                            <% } %>
+                </div>
+            </div>
+        </div>
+
+
+        <%- include("../partial/footer.ejs") %>

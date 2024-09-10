@@ -1,0 +1,107 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox norformsetup">
+                        <form action="/leads/assign/UpdateAssign" method="post">
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label>Select Department Head: <sup>*</sup></label>
+                                        <select class="form-control" id="department_head" name="department_head" required>
+                                            <% departments.forEach(department=> { %>
+                                                <option value="<%= department.Head %>">
+                                                    <%= department.Head %>
+                                                </option>
+                                                <% }); %>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label>Select Department: <sup>*</sup></label>
+                                        <select class="form-control" id="department" name="department" required>
+                                            <% departments.forEach(department=> { %>
+                                                <option value="<%= department.Name %>">
+                                                    <%= department.Name %>
+                                                </option>
+                                                <% }); %>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label>Select User <sup>*</sup></label>
+                                        <div class="multiselcter">
+                                            <select data-placeholder="Select Name" multiple class="selectpicker" name="User_Name" id="User_Name" required>
+                                                <% UserProfile.forEach(user=> { %>
+                                                    <option value="<%= user.Name %>">
+                                                        <%= user.Name %>
+                                                    </option>
+                                                    <% }); %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group gaptoseare">
+                                        <button class="fosavbtn" type="submit">Save </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- views/main/url.ejs -->
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>SNo</th>
+                                        <th>Leads</th>
+                                        <th>Email</th>
+                                        <th>Mobile_Number</th>
+                                        <th>Assign</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% if (LeadsData.length> 0) { %>
+                                        <% let serialNumber=1; %>
+                                            <% LeadsData.forEach(Leads=> { %>
+                                                <tr>
+                                                    <td>
+                                                        <%= serialNumber++ %>
+                                                    </td>
+                                                    <td>
+                                                        <%= Leads.Name %>
+                                                    </td>
+                                                    <td>
+                                                        <%= Leads.Email %>
+                                                    </td>
+                                                    <td>
+                                                        <%= Leads.Mobile_Number %>
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-check-input" type="checkbox" id="Assign" name="Assign" value="<%= Leads.Email %>">
+                                                    </td>
+                                                </tr>
+                                                <% }); %>
+                                                    <% } else { %>
+                                                        <tr>
+                                                            <td colspan="4" class="text-center">No data available</td>
+                                                        </tr>
+                                                        <% } %>
+                                </tbody>
+                            </table>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <%- include("../partial/footer.ejs") %>

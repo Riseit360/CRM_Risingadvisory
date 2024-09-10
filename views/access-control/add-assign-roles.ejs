@@ -1,0 +1,67 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox norformsetup">
+                        <!-- Multipal  Url Shortener-->
+                        <form action="/access-control/CreateRoles" method="post">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Name <sup>*</sup></label>
+                                        <input type="text" class="form-control" name="Name" placeholder="Enter Name"
+                                            required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Select Department: <sup>*</sup></label>
+                                        <select class="form-control" id="department" name="department" required>
+                                            <% departments.forEach(department=> { %>
+                                                <option value="<%= department.Name %>">
+                                                    <%= department.Name %>
+                                                </option>
+                                                <% }); %>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Select Department Head: <sup>*</sup></label>
+                                        <select class="form-control" id="department_head" name="department_head"
+                                            required>
+                                            <% departments.forEach(department=> { %>
+                                                <option value="<%= department.Head %>">
+                                                    <%= department.Head %>
+                                                </option>
+                                                <% }); %>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Select Navigation <sup>*</sup></label>
+                                        <select class="form-control" id="Navigation" name="Navigation" required>
+                                            <% navigation.forEach(navigation=> { %>
+                                                <option value="<%= navigation.Menu_Name %>">
+                                                    <%= navigation.Menu_Name %>
+                                                </option>
+                                                <% }); %>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="fosavbtn" type="submit">Save </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <%- include("../partial/footer.ejs") %>

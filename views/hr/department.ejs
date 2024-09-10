@@ -1,0 +1,118 @@
+<%- include("../partial/header.ejs") %>
+
+    <%- include('../partial/breadcrumbs.ejs') %>
+
+
+
+        <!-- Client Details -->
+        <div class="clientdetail commpadisecar">
+            <div class="container">
+                <div class="row">
+                    <div class="draftbox">
+
+                        <!-- views/main/url.ejs -->
+                        <table class="table SmallDatatable">
+                            <thead>
+                                <tr>
+                                    <th>SNo</th>
+                                    <th>Edit</th>
+                                    <th>ID</th>
+                                    <th>Track ID</th>
+                                    <th>Department Name</th>
+                                    <th>Department Head</th>
+                                    <th>Email</th>
+                                    <th>Contact Number</th>
+                                    <th>Location</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if (Data && Array.isArray(Data) && Data.length> 0) { %>
+                                    <% Data.forEach((data, index)=> { %>
+                                        <tr>
+                                            <td>
+                                                <%= index + 1 %>
+                                            </td>
+                                            <td>
+                                                <a href="/hr/department/update/<%= data.U_URl_ID %>">Edit</a>
+                                            </td>
+                                            <td>
+                                                <%= data.U_URl_ID %>
+                                            </td>
+                                            <td>
+                                                <%= data.UserAgentID %>
+                                            </td>
+                                            <td>
+                                                <%= data.Name %>
+                                            </td>
+                                            <td>
+                                                <%= data.Head %>
+                                            </td>
+
+                                            <td>
+                                                <%= data.Email %>
+                                            </td>
+                                            <td>
+                                                <%= data.Mobile_Number %>
+                                            </td>
+                                            <td>
+                                                <%= data.location %>
+                                            </td>
+                                            <td>
+                                                <a href="/hr/department/Status/<%= data.U_URl_ID %>">
+                                                    <%= data.isActive ? 'Active' : 'Inactive' %>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <%= moment(data.Date).format('DD MMMM YYYY, h:mm:ss a') %>
+                                            </td>
+                                            <td>
+                                                <a href="/hr/department/delete/<%= data.U_URl_ID %>">
+                                                    Delete
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <% }); %>
+                                            <% } else { %>
+                                                <tr>
+                                                    <td colspan="6">No URLs found or error retrieving data.</td>
+                                                </tr>
+                                                <% } %>
+                            </tbody>
+                        </table>
+
+                        <!-- Pagination Controls -->
+                        <nav>
+                            <ul class="pagination">
+                                <% if (currentPage> 1) { %>
+                                    <li class="page-item"><a class="page-link"
+                                            href="/hr/department?page=<%= currentPage - 1 %>&pageSize=<%= pageSize %>">Previous</a>
+                                    </li>
+                                    <% } %>
+                                        <% for (let i=1; i <=totalPages; i++) { %>
+                                            <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+                                                <a class="page-link"
+                                                    href="/hr/department?page=<%= i %>&pageSize=<%= pageSize %>">
+                                                    <%= i %>
+                                                </a>
+                                            </li>
+                                            <% } %>
+                                                <% if (currentPage < totalPages) { %>
+                                                    <li class="page-item"><a class="page-link"
+                                                            href="/hr/department?page=<%= currentPage + 1 %>&pageSize=<%= pageSize %>">Next</a>
+                                                    </li>
+                                                    <% } %>
+                            </ul>
+                        </nav>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <%- include("../partial/footer.ejs") %>
