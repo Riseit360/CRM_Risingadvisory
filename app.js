@@ -35,7 +35,7 @@ app.locals.moment = moment;
 app.locals.shortDateFormat = shortDateFormat;
 
 //port
-var port = process.env.PORT || 2080;
+var port = process.env.PORT || 3020;
 
 // Set view engine
 app.set("view engine", "ejs");
